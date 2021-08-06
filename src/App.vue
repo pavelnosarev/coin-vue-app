@@ -4,7 +4,24 @@
       <router-link to="/">Home</router-link>
       |
       <router-link to="/about">About</router-link>
+      |
+      <li v-if="!isLoggedIn()">
+        <router-link to="/signup">Signup</router-link>
+      </li>
+      |
+      <li v-if="!isLoggedIn()">
+        <router-link to="/login">Login</router-link>
+      </li>
+      |
+      <li v-if="isLoggedIn()">
+        <router-link to="/logout">Logout</router-link>
+      </li>
+      |
+      <router-link to="/coins">Coins</router-link>
+      |
+      <router-link to="/coins/new">Create</router-link>
     </div>
+
     <router-view />
   </div>
 </template>
@@ -31,3 +48,20 @@
   color: #42b983;
 }
 </style>
+<script>
+// import axios from "axios";
+export default {
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    getUserId: function () {
+      return localStorage.getItem("user_id");
+    },
+  },
+};
+</script>
