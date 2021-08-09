@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     indexCoins: function () {
-      axios.get("http://localhost:3000/coins").then((response) => {
+      axios.get("http://localhost:3000/index").then((response) => {
         this.coins = response.data;
         console.log("All coins:", this.coins);
       });

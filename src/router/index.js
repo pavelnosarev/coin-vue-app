@@ -28,7 +28,7 @@ const routes = [
   { path: "/signup", name: "signup", component: Signup },
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
-  { path: "/coins", name: "coins-index", component: CoinsIndex },
+  { path: "/index", name: "coins-index", component: CoinsIndex },
   { path: "/coins/new", name: "coins-new", component: CoinsNew },
   { path: "/coins/:id", name: "coins-show", component: CoinsShow },
   { path: "/coins/:id/edit", name: "coins-edit", component: CoinsEdit },

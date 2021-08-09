@@ -17,7 +17,7 @@
         <router-link to="/logout">Logout</router-link>
       </li>
       |
-      <router-link to="/coins">Coins</router-link>
+      <router-link to="/index">Coins</router-link>
       |
       <router-link to="/coins/new">Create</router-link>
     </div>

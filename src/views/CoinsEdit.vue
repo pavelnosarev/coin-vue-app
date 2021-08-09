@@ -59,7 +59,7 @@ export default {
     },
     destroyCoin: function () {
       axios.delete(`/coins/${this.$route.params.id}`).then((response) => {
-        console.log("Sweet!", response.data);
+        console.log("Sadge.", response.data);
         this.$router.push("/coins");
       });
     },
