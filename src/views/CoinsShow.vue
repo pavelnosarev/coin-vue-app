@@ -6,7 +6,7 @@
       <p>{{ coin.denomination }}</p>
       <p>{{ coin.mint }}</p>
       <p>{{ coin.year }}</p>
-      <p>{{ coin.image }}</p>
+      <img v-bind:src="coin.image" />
 
       <router-link v-bind:to="`/coins/${coin.id}/edit`"><button>Edit coin</button></router-link>
       <router-link to="/coins">Back to all Coins</router-link>

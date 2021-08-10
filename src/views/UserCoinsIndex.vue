@@ -6,21 +6,21 @@
         <input v-model="descriptionFilter" />
 
         <div
-          v-for="coin in filterBy(coins, descriptionFilter, 'description')"
-          :key="coin.id"
-          v-bind:class="{ selected: coin === currentCoin }"
-          v-on:click="currentCoin = coin"
+          v-for="userCoin in filterBy(userCoins, descriptionFilter, 'description')"
+          :key="userCoin.id"
+          v-bind:class="{ selected: userCoin === currentUserCoin }"
+          v-on:click="currentUserCoin = userCoin"
         >
           <div class="col-3">
             <div class="card-body">
-              <h5 class="card-title">Description: {{ coin.description }}</h5>
-              <p class="card-text">Metal: {{ coin.metal }}</p>
-              <p class="card-text">Denomination: {{ coin.denomination }}</p>
-              <p class="card-text">Mint: {{ coin.mint }}</p>
-              <p class="card-text">Year: {{ coin.year }}</p>
-              <img v-bind:src="coin.image" />
-              <router-link v-bind:to="`/coins/${coin.id}/edit`"><button>Edit coin</button></router-link>
-              <router-link v-bind:to="`usercoins`"><button>Add To My Coin</button></router-link>
+              <h5 class="card-title">Description: {{ userCoin.description }}</h5>
+              <p class="card-text">Metal: {{ userCoin.metal }}</p>
+              <p class="card-text">Denomination: {{ userCoin.denomination }}</p>
+              <p class="card-text">Mint: {{ userCoin.mint }}</p>
+              <p class="card-text">Year: {{ userCoin.year }}</p>
+              <img v-bind:src="userCoin.image" />
+              <router-link v-bind:to="`/usercoins/${userCoin.id}/edit`"><button>Edit coin</button></router-link>
+              <router-link v-bind:to="`/usercoins/${userCoin.id}/add?`"><button>Add To My Coin</button></router-link>
 
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
@@ -58,21 +58,21 @@ import Vue2Filters from "vue2-filters";
 export default {
   data: function () {
     return {
-      message: "Here all all the coins!",
-      coins: [],
-      currentCoin: {},
+      message: "Here all all your coins!",
+      userCoins: [],
+      currentUserCoin: {},
       descriptionFilter: "",
     };
   },
   mixins: [Vue2Filters.mixin],
   created: function () {
-    this.indexCoins();
+    this.indexUserCoin();
   },
   methods: {
-    indexCoins: function () {
-      axios.get("http://localhost:3000/index").then((response) => {
-        this.coins = response.data;
-        console.log("All coins:", this.coins);
+    indexUserCoin: function () {
+      axios.get("http://localhost:3000/usercoins").then((response) => {
+        this.userCoins = response.data;
+        console.log("My coins:", this.userCoins);
       });
     },
   },

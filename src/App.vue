@@ -12,12 +12,15 @@
       <li v-if="!isLoggedIn()">
         <router-link to="/login">Login</router-link>
       </li>
+      <li v-if="isLoggedIn()">
+        <router-link to="/usercoins">My Coins</router-link>
+      </li>
       |
       <li v-if="isLoggedIn()">
         <router-link to="/logout">Logout</router-link>
       </li>
       |
-      <router-link to="/index">Coins</router-link>
+      <router-link to="/index">All Coins</router-link>
       |
       <router-link to="/coins/new">Create</router-link>
     </div>
