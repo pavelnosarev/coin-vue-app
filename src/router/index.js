@@ -8,7 +8,8 @@ import CoinsIndex from "../views/CoinsIndex.vue";
 import CoinsNew from "../views/CoinsNew.vue";
 import CoinsShow from "../views/CoinsShow.vue";
 import CoinsEdit from "../views/CoinsEdit.vue";
-import UserCoinsIndex from "../views/UserCoinsEdit.vue";
+import UserCoinsIndex from "../views/UserCoinsIndex.vue";
+import UserCoinsEdit from "../views/UserCoinsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -26,14 +27,15 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
-  { path: "/", name: "signup", component: Signup },
-  { path: "/login", name: "login", component: Login },
+  { path: "/signup", name: "signup", component: Signup },
+  { path: "/", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
-  { path: "/index", name: "coins-index", component: CoinsIndex },
+  { path: "/coins", name: "coins-index", component: CoinsIndex },
   { path: "/coins/new", name: "coins-new", component: CoinsNew },
   { path: "/coins/:id", name: "coins-show", component: CoinsShow },
   { path: "/coins/:id/edit", name: "coins-edit", component: CoinsEdit },
   { path: "/usercoins", name: "usercoins-index", component: UserCoinsIndex },
+  { path: "/usercoins/:id/edit", name: "usercoins-edit", component: UserCoinsEdit },
 ];
 
 const router = new VueRouter({

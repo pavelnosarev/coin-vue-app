@@ -12,8 +12,7 @@ axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localh
 var jwt = localStorage.getItem("jwt");
 
 if (jwt) {
-  axios.defaults.headers.common["Authorization"] = "Bearer ";
-  jwt;
+  axios.defaults.headers.common["Authorization"] = "Bearer " + jwt;
 }
 
 new Vue({

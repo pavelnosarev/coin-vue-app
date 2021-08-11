@@ -6,7 +6,7 @@
         <input v-model="descriptionFilter" />
 
         <div
-          v-for="userCoin in filterBy(userCoins, descriptionFilter, 'description')"
+          v-for="userCoin in filterBy(userCoins, descriptionFilter, 'coin_id')"
           :key="userCoin.id"
           v-bind:class="{ selected: userCoin === currentUserCoin }"
           v-on:click="currentUserCoin = userCoin"
@@ -14,13 +14,16 @@
           <div class="col-3">
             <div class="card-body">
               <h5 class="card-title">Description: {{ userCoin.description }}</h5>
-              <p class="card-text">Metal: {{ userCoin.metal }}</p>
-              <p class="card-text">Denomination: {{ userCoin.denomination }}</p>
-              <p class="card-text">Mint: {{ userCoin.mint }}</p>
-              <p class="card-text">Year: {{ userCoin.year }}</p>
-              <img v-bind:src="userCoin.image" />
+              <p class="card-text">Metal: {{ userCoin.coin.metal }}</p>
+              <p class="card-text">Denomination: {{ userCoin.coin.denomination }}</p>
+              <p class="card-text">Mint: {{ userCoin.coin.mint }}</p>
+              <p class="card-text">Year: {{ userCoin.coin.year }}</p>
+              <p class="card-text">Status: {{ userCoin.status }}</p>
+              <img v-bind:src="userCoin.coin.image" />
               <router-link v-bind:to="`/usercoins/${userCoin.id}/edit`"><button>Edit coin</button></router-link>
-              <router-link v-bind:to="`/usercoins/${userCoin.id}/add?`"><button>Add To My Coin</button></router-link>
+              <router-link v-bind:to="`/usercoins/${userCoin.id}/add?`">
+                <button>Add To My Coin</button>
+              </router-link>
 
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
@@ -70,7 +73,7 @@ export default {
   },
   methods: {
     indexUserCoin: function () {
-      axios.get("http://localhost:3000/usercoins").then((response) => {
+      axios.get("/usercoins").then((response) => {
         this.userCoins = response.data;
         console.log("My coins:", this.userCoins);
       });

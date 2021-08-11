@@ -20,9 +20,11 @@
         <router-link to="/logout">Logout</router-link>
       </li>
       |
-      <router-link to="/index">All Coins</router-link>
+      <router-link to="/coins">All Coins</router-link>
       |
-      <router-link to="/coins/new">Create</router-link>
+      <li v-if="isAdmin()">
+        <router-link to="/coins/new">Add New Coin</router-link>
+      </li>
     </div>
 
     <router-view />
@@ -64,6 +66,14 @@ export default {
     },
     getUserId: function () {
       return localStorage.getItem("user_id");
+    },
+    isAdmin: function () {
+      // return localStorage.getItem("isAdmin")
+      if (localStorage.getItem("isAdmin") == "true") {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };

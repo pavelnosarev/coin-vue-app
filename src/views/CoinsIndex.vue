@@ -19,7 +19,10 @@
               <p class="card-text">Mint: {{ coin.mint }}</p>
               <p class="card-text">Year: {{ coin.year }}</p>
               <img v-bind:src="coin.image" />
-              <router-link v-bind:to="`/coins/${coin.id}/edit`"><button>Edit coin</button></router-link>
+
+              <router-link v-bind:to="`/coins/${coin.id}/edit`">
+                <button v-if="isAdmin()">Edit coin</button>
+              </router-link>
               <router-link v-bind:to="`usercoins`"><button>Add To My Coin</button></router-link>
 
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
@@ -70,10 +73,18 @@ export default {
   },
   methods: {
     indexCoins: function () {
-      axios.get("http://localhost:3000/index").then((response) => {
+      axios.get("http://localhost:3000/coins").then((response) => {
         this.coins = response.data;
         console.log("All coins:", this.coins);
       });
+    },
+    isAdmin: function () {
+      // return localStorage.getItem("isAdmin")
+      if (localStorage.getItem("isAdmin") == "true") {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };

@@ -9,6 +9,7 @@ export default {
     delete axios.defaults.headers.common["Authorization"];
     localStorage.removeItem("jwt");
     localStorage.removeItem("user_id");
+    localStorage.setItem("isAdmin", false);
     this.$router.push("/");
   },
 };

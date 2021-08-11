@@ -26,6 +26,10 @@
         <input type="text" v-model="currentUserCoinParams.year" />
       </div>
       <div>
+        <label>Status:</label>
+        <input type="text" v-model="currentUserCoinParams.status" />
+      </div>
+      <div>
         <label>Image:</label>
         <input type="text" v-model="currentUserCoinParams.image" />
       </div>
@@ -52,9 +56,9 @@ export default {
   },
   methods: {
     updateUserCoin: function () {
-      axios.patch(`/coins/${this.$route.params.id}`, this.currentUserCoinParams).then((response) => {
+      axios.patch(`/usercoins/${this.$route.params.id}`, this.currentUserCoinParams).then((response) => {
         console.log(response.data);
-        this.$router.push(`/usercoins/${response.data.id}`);
+        this.$router.push(`/usercoins`);
       });
     },
     destroyCoin: function () {
