@@ -34,7 +34,7 @@
         <input type="text" v-model="currentUserCoinParams.image" />
       </div>
       <input type="submit" value="Submit" />
-      <button v-on:click="destroyUserCoin()">Delete From List</button>
+      <button v-on:click="destroyUserCoin(userCoin)">Delete From List</button>
     </form>
   </div>
 </template>
@@ -46,6 +46,7 @@ export default {
     return {
       errors: [],
       currentUserCoinParams: {},
+      userCoin: [],
     };
   },
   created: function () {
@@ -61,9 +62,9 @@ export default {
         this.$router.push(`/usercoins`);
       });
     },
-    destroyCoin: function () {
+    destroyUserCoin: function () {
       axios.delete(`/usercoins/${this.$route.params.id}`).then((response) => {
-        console.log("Sadge.", response.data);
+        console.log("why you delete me.", response.data);
         this.$router.push("/usercoins");
       });
     },

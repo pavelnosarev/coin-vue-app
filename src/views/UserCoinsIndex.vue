@@ -13,14 +13,14 @@
         >
           <div class="col-3">
             <div class="card-body">
-              <h5 class="card-title">Description: {{ userCoin.description }}</h5>
+              <h5 class="card-title">Description: {{ userCoin.coin.description }}</h5>
               <p class="card-text">Metal: {{ userCoin.coin.metal }}</p>
               <p class="card-text">Denomination: {{ userCoin.coin.denomination }}</p>
               <p class="card-text">Mint: {{ userCoin.coin.mint }}</p>
               <p class="card-text">Year: {{ userCoin.coin.year }}</p>
               <p class="card-text">Status: {{ userCoin.status }}</p>
               <img v-bind:src="userCoin.coin.image" />
-              <router-link v-bind:to="`/usercoins/${userCoin.id}/edit`"><button>Edit coin</button></router-link>
+              <router-link v-bind:to="`/usercoins/${userCoin.id}/edit`"><button>Edit Coin</button></router-link>
               <router-link v-bind:to="`/usercoins/${userCoin.id}/add?`">
                 <button>Add To My Coin</button>
               </router-link>
@@ -76,6 +76,13 @@ export default {
       axios.get("/usercoins").then((response) => {
         this.userCoins = response.data;
         console.log("My coins:", this.userCoins);
+      });
+    },
+    deleteUserCoin: function (coin) {
+      var params = { coin_id: coin.id };
+      axios.delete("http://localhost:3000/usercoins", params).then((response) => {
+        this.userCoins = response.data;
+        console.log("Deleted this coin from list.", this.userCoins);
       });
     },
   },

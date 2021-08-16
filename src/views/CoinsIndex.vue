@@ -23,7 +23,9 @@
               <router-link v-bind:to="`/coins/${coin.id}/edit`">
                 <button v-if="isAdmin()">Edit coin</button>
               </router-link>
-              <router-link v-bind:to="`usercoins`"><button>Add To My Coin</button></router-link>
+              <router-link v-bind:to="`usercoins`">
+                <button v-on:click="addUserCoin(coin)">Add To My Coin</button>
+              </router-link>
 
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
@@ -65,6 +67,8 @@ export default {
       coins: [],
       currentCoin: {},
       descriptionFilter: "",
+      userCoins: [],
+      // userId:localStorage.getItem("user_id"),
     };
   },
   mixins: [Vue2Filters.mixin],
@@ -76,6 +80,13 @@ export default {
       axios.get("http://localhost:3000/coins").then((response) => {
         this.coins = response.data;
         console.log("All coins:", this.coins);
+      });
+    },
+    addUserCoin: function (coin) {
+      var params = { coin_id: coin.id };
+      axios.post("http://localhost:3000/usercoins", params).then((response) => {
+        this.userCoins = response.data;
+        console.log("All usercoins:", this.userCoins);
       });
     },
     isAdmin: function () {
