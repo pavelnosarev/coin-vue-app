@@ -5,23 +5,23 @@
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <div>
+      <div v-if="isAdmin()">
         <label>Metal:</label>
         <input type="text" v-model="currentUserCoinParams.metal" />
       </div>
-      <div>
+      <div v-if="isAdmin()">
         <label>Description:</label>
         <input type="text" v-model="currentUserCoinParams.description" />
       </div>
-      <div>
+      <div v-if="isAdmin()">
         <label>Denomination:</label>
         <input type="text" v-model="currentUserCoinParams.denomination" />
       </div>
-      <div>
+      <div v-if="isAdmin()">
         <label>Mint:</label>
         <input type="text" v-model="currentUserCoinParams.mint" />
       </div>
-      <div>
+      <div v-if="isAdmin()">
         <label>Year:</label>
         <input type="text" v-model="currentUserCoinParams.year" />
       </div>
@@ -29,7 +29,7 @@
         <label>Status:</label>
         <input type="text" v-model="currentUserCoinParams.status" />
       </div>
-      <div>
+      <div v-if="isAdmin()">
         <label>Image:</label>
         <input type="text" v-model="currentUserCoinParams.image" />
       </div>
@@ -67,6 +67,14 @@ export default {
         console.log("why you delete me.", response.data);
         this.$router.push("/usercoins");
       });
+    },
+    isAdmin: function () {
+      // return localStorage.getItem("isAdmin")
+      if (localStorage.getItem("isAdmin") == "true") {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };

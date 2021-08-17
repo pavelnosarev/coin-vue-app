@@ -2,26 +2,26 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>
-      |
+      *
       <router-link to="/about">About</router-link>
-      |
+
       <li v-if="!isLoggedIn()">
         <router-link to="/signup">Signup</router-link>
       </li>
-      |
-      <li v-if="!isLoggedIn()">
+
+      <li v-if="isLoggedIn()">
         <router-link to="/login">Login</router-link>
       </li>
       <li v-if="isLoggedIn()">
         <router-link to="/usercoins">My Coins</router-link>
       </li>
-      |
+
       <li v-if="isLoggedIn()">
         <router-link to="/logout">Logout</router-link>
       </li>
-      |
+
       <router-link to="/coins">All Coins</router-link>
-      |
+
       <li v-if="isAdmin()">
         <router-link to="/coins/new">Add New Coin</router-link>
       </li>
@@ -46,11 +46,11 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #196dc2;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #5c42b9;
 }
 </style>
 <script>
