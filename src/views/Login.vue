@@ -1,18 +1,20 @@
 <template>
-  <div class="login">
+  <div class="login d-flex justify-content-center">
     <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
+      <h1 class="d-flex justify-content-center">Login</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       <div>
-        <label>Email:</label>
+        <label class="email d-flex justify-content-center" id="green">Email:</label>
         <input type="email" v-model="newSessionParams.email" />
       </div>
+      <p></p>
       <div>
-        <label>Password:</label>
+        <label class="email d-flex justify-content-center">Password:</label>
         <input type="password" v-model="newSessionParams.password" />
       </div>
+      <p></p>
       <input type="submit" value="Submit" />
     </form>
   </div>
@@ -48,3 +50,17 @@ export default {
   },
 };
 </script>
+``
+
+<style>
+/* input references tag (ie <h2> or <p>), (.) references class, (#) references id*/
+input {
+  text-align: center;
+}
+/* .email {
+  color: rgb(74, 105, 208); */
+/* } */
+/* #green {
+  color: green;
+} */
+</style>
