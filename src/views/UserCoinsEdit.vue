@@ -1,6 +1,62 @@
 <template>
-  <div class="usercoins-edit">
-    <form v-on:submit.prevent="updateUserCoin()">
+  <div class="login">
+    <div class="login-register-area pt-100 pb-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 col-md-12 ms-auto me-auto">
+            <div class="login-register-wrapper">
+              <div class="login-register-tab-list nav">
+                <a class="active" data-bs-toggle="tab" href="#lg1"></a>
+                <h1>edit my coin</h1>
+              </div>
+              <div class="tab-content">
+                <div id="lg1" class="tab-pane active">
+                  <div class="login-form-container">
+                    <div class="login-register-form">
+                      <form v-on:submit.prevent="updateUserCoin()">
+                        <!-- <h1>Edit My Coin</h4> -->
+                        <ul>
+                          <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+                        </ul>
+                        <input v-if="isAdmin()" type="text" v-model="currentUserCoinParams.image" placeholder="image" />
+
+                        <input v-if="isAdmin()" type="text" v-model="currentUserCoinParams.metal" placeholder="metal" />
+                        <input
+                          v-if="isAdmin()"
+                          type="text"
+                          v-model="currentUserCoinParams.description"
+                          placeholder="description"
+                        />
+                        <input
+                          v-if="isAdmin()"
+                          type="text"
+                          v-model="currentUserCoinParams.denomination"
+                          placeholder="denomination"
+                        />
+                        <input v-if="isAdmin()" type="text" v-model="currentUserCoinParams.mint" placeholder="mint" />
+                        <input v-if="isAdmin()" type="text" v-model="currentUserCoinParams.year" placeholder="year" />
+                        <label>Own Coin?:</label>
+                        <input type="text" v-model="currentUserCoinParams.status" placeholder="status" />
+
+                        <input type="submit" v-on:click="patchUserCoin(userCoin)" placeholder="patch" />
+                        <div class="button-box">
+                          <button type="submit" class="btn btn-secondary"><span>Delete from List</span></button>
+                        </div>
+                        <!-- <input type="submit" v-on:click="destroyUserCoin(userCoin)" placeholder="password" />
+                    <div class="button-box">
+                      <button type="submit"><span>Delete from List</span></button>
+                    </div> -->
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <form v-on:submit.prevent="updateUserCoin()">
       <h1>Edit My Coin</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -35,7 +91,7 @@
       </div>
       <input type="submit" value="Submit" />
       <button v-on:click="destroyUserCoin(userCoin)">Delete From List</button>
-    </form>
+    </form> -->
   </div>
 </template>
 

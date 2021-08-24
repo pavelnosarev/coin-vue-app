@@ -75,6 +75,7 @@
                   <ul>
                     <li><a href="/logout">Logout</a></li>
                     <li><a href="/usercoins">My Coins</a></li>
+                    <li><a href="/users">Signup</a></li>
                   </ul>
                 </div>
               </div>
@@ -102,7 +103,7 @@
                   <a href="/">HOME</a>
                 </li>
                 <li>
-                  <a href="/about">About</a>
+                  <a href="/users">Signup</a>
                 </li>
                 <li><a href="/coins">Coin Database</a></li>
                 <li>

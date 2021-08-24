@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="login d-flex justify-content-center">
+    <!-- <div class="login d-flex justify-content-center">
       <form v-on:submit.prevent="submit()">
         <h1 class="d-flex justify-content-center">Login</h1>
         <ul>
@@ -52,7 +52,7 @@
         <p></p>
         <input type="submit" value="Submit" />
       </form>
-    </div>
+    </div> -->
   </div>
 </template>
 

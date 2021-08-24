@@ -51,6 +51,12 @@
                             <span class="card-text">Metal: {{ coin.metal }}</span>
                             <span class="card-text">Mint: {{ coin.mint }}</span>
                             <h5 class="card-title text-center">Description: {{ coin.description }}</h5>
+                            <router-link v-bind:to="`usercoins`">
+                              <button v-on:click="addUserCoin(coin)" class="btn btn-secondary">Add To My Coin</button>
+                            </router-link>
+                            <router-link v-bind:to="`/coins/${coin.id}/edit`">
+                              <button class="btn btn-secondary" v-if="isAdmin()">Edit coin</button>
+                            </router-link>
                           </div>
                         </div>
                         <div class="pro-wishlist-2">
