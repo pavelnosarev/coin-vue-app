@@ -1,7 +1,9 @@
 <template>
   <div class="posts-index">
-    <!-- search:
-        <input v-model="descriptionFilter" /> -->
+    <div class="search-bar d-flex justify-content-center">
+      search:
+      <input v-model="descriptionFilter" />
+    </div>
     <div class="product-area pb-60">
       <div class="container">
         <div class="tab-filter-wrap mb-60">
@@ -11,12 +13,6 @@
               <h1>All Coins</h1>
             </a>
             <a href="coins" data-bs-toggle="tab"></a>
-          </div>
-          <div class="filter-active">
-            <a href="#">
-              <i class="fa fa-plus"></i>
-              filter
-            </a>
           </div>
         </div>
 
@@ -29,7 +25,7 @@
               <div class="row">
                 <div class="row">
                   <div
-                    v-for="coin in filterBy(coins, descriptionFilter, 'description')"
+                    v-for="coin in filterBy(coins, descriptionFilter, 'description', 'metal,', 'denomination', 'year')"
                     :key="coin.id"
                     v-bind:class="{ selected: coin === currentCoin }"
                     v-on:click="currentCoin = coin"
@@ -50,17 +46,17 @@
                           <div class="price-2">
                             <span class="card-text">Metal: {{ coin.metal }}</span>
                             <span class="card-text">Mint: {{ coin.mint }}</span>
+                            <span class="card-text">Year: {{ coin.year }}</span>
                             <h5 class="card-title text-center">Description: {{ coin.description }}</h5>
                             <router-link v-bind:to="`usercoins`">
                               <button v-on:click="addUserCoin(coin)" class="btn btn-secondary">Add To My Coin</button>
                             </router-link>
+                            <br />
+                            <br />
                             <router-link v-bind:to="`/coins/${coin.id}/edit`">
                               <button class="btn btn-secondary" v-if="isAdmin()">Edit coin</button>
                             </router-link>
                           </div>
-                        </div>
-                        <div class="pro-wishlist-2">
-                          <a title="Wishlist" href="wishlist.html"><i class="fa fa-heart-o"></i></a>
                         </div>
                       </div>
                     </div>
@@ -156,4 +152,14 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.search-bar {
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  width: 40%;
+}
+</style>

@@ -43,45 +43,11 @@
                             </router-link>
                           </div>
                         </div>
-                        <div class="pro-wishlist-2">
-                          <a title="Wishlist" href="wishlist.html"><i class="fa fa-heart-o"></i></a>
-                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-deck">
-      <div class="card">
-        search:
-        <input v-model="descriptionFilter" />
-
-        <div
-          v-for="userCoin in filterBy(userCoins, descriptionFilter, 'coin_id')"
-          :key="userCoin.id"
-          v-bind:class="{ selected: userCoin === currentUserCoin }"
-          v-on:click="currentUserCoin = userCoin"
-        >
-          <div class="col-3">
-            <div class="card-body">
-              <!-- <h5 class="card-title">Description: {{ userCoin.coin.description }}</h5> -->
-              <!-- <p class="card-text">Metal: {{ userCoin.coin.metal }}</p> -->
-              <!-- <p class="card-text">Denomination: {{ userCoin.coin.denomination }}</p> -->
-              <!-- <p class="card-text">Mint: {{ userCoin.coin.mint }}</p> -->
-              <p class="card-text">Year: {{ userCoin.coin.year }}</p>
-              <!-- <p class="card-text">Status: {{ userCoin.status }}</p> -->
-              <img v-bind:src="userCoin.coin.image" />
-              <router-link v-bind:to="`/usercoins/${userCoin.id}/edit`"><button>Edit Coin</button></router-link>
-              <router-link v-bind:to="`/usercoins/${userCoin.id}/add?`">
-                <button>Add To My Coin</button>
-              </router-link>
-
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>
         </div>

@@ -60,22 +60,13 @@
           </div>
           <div class="col-xl-2 col-lg-2 col-md-6 col-8">
             <div class="header-right-wrap">
-              <div class="same-style header-search">
-                <a class="search-active" href="#"><i class="pe-7s-search"></i></a>
-                <div class="search-content">
-                  <form action="#">
-                    <input type="text" placeholder="Search" />
-                    <button class="button-search"><i class="pe-7s-search"></i></button>
-                  </form>
-                </div>
-              </div>
               <div class="same-style account-satting">
                 <a class="account-satting-active" href="/coins/new"><i class="pe-7s-user-female"></i></a>
                 <div class="account-dropdown">
                   <ul>
                     <li><a href="/logout">Logout</a></li>
                     <li><a href="/usercoins">My Coins</a></li>
-                    <li><a href="/users">Signup</a></li>
+                    <li><a href="/signup">Signup</a></li>
                   </ul>
                 </div>
               </div>
@@ -103,7 +94,7 @@
                   <a href="/">HOME</a>
                 </li>
                 <li>
-                  <a href="/users">Signup</a>
+                  <a href="/signup">Signup</a>
                 </li>
                 <li><a href="/coins">Coin Database</a></li>
                 <li>

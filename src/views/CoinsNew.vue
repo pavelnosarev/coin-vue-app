@@ -39,7 +39,6 @@
                             <input v-if="isAdmin()" type="text" v-model="newCoinParams.mint" placeholder="mint" />
                             <input v-if="isAdmin()" type="text" v-model="newCoinParams.year" placeholder="year" />
                             <!-- <label>Own Coin?:</label> -->
-                            <input type="text" v-model="newCoinParams.status" placeholder="status" />
 
                             <input type="submit" v-on:click="patchCoin(Coin)" placeholder="patch" />
                             <div class="button-box">

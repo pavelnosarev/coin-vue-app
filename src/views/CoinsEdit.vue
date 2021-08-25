@@ -42,7 +42,9 @@
 
                           <input type="submit" v-on:click="patchCoin(Coin)" placeholder="patch" />
                           <div class="button-box">
-                            <button type="submit" class="btn btn-secondary"><span>Delete from Database</span></button>
+                            <button v-on:click="destroyCoin()" type="submit" class="btn btn-secondary">
+                              <span>Delete from Database</span>
+                            </button>
                           </div>
                           <!-- <input type="submit" v-on:click="destroyUserCoin(userCoin)" placeholder="password" />
                     <div class="button-box">
@@ -96,7 +98,7 @@
     </form> -->
     </div>
 
-    <form v-on:submit.prevent="updateCoin()">
+    <!-- <form v-on:submit.prevent="updateCoin()">
       <h1>Edit Coin</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -127,7 +129,7 @@
       </div>
       <input type="submit" />
       <button v-on:click="destroyCoin()">Delete Coin</button>
-    </form>
+    </form> -->
   </div>
 </template>
 

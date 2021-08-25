@@ -1,15 +1,17 @@
 <template>
   <div class="posts-new">
     <div class="container">
-      <h2>{{ coin.description }}</h2>
-      <p>{{ coin.metal }}</p>
-      <p>{{ coin.denomination }}</p>
-      <p>{{ coin.mint }}</p>
-      <p>{{ coin.year }}</p>
+      <h2>Description: {{ coin.description }}</h2>
       <img v-bind:src="coin.image" />
+      <p>Metal: {{ coin.metal }}</p>
+      <p>Denomination: {{ coin.denomination }}</p>
+      <p>Mint: {{ coin.mint }}</p>
+      <p>Year: {{ coin.year }}</p>
 
-      <router-link v-bind:to="`/coins/${coin.id}/edit`"><button>Edit coin</button></router-link>
-      <router-link to="/coins">Back to all Coins</router-link>
+      <!-- <router-link v-bind:to="`/coins/${coin.id}/edit`">
+        <button class="btn btn-secondary">Edit coin</button>
+      </router-link> -->
+      <router-link to="/coins" class="btn btn-secondary">Back to all Coins</router-link>
     </div>
   </div>
 </template>

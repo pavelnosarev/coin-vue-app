@@ -19,6 +19,8 @@
                           <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
                         </ul>
                         <input type="email" v-model="newSessionParams.email" placeholder="email" />
+                        <br />
+                        <br />
 
                         <input type="password" v-model="newSessionParams.password" placeholder="password" />
                         <div class="button-box">
@@ -86,4 +88,4 @@ export default {
   },
 };
 </script>
-``
+<style></style>

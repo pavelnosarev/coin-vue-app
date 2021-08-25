@@ -32,7 +32,11 @@
                         <small v-if="newUserParams.password.length > 20" class="text-danger">
                           Password cannot exceed 20 characters
                         </small>
-                        <input type="password" v-model="newUserParams.password_confirmation" />
+                        <input
+                          type="password"
+                          v-model="newUserParams.password_confirmation"
+                          placeholder=" password confirmation"
+                        />
                         <small
                           v-if="newUserParams.password_confirmation !== newUserParams.password"
                           class="text-danger"
@@ -71,7 +75,7 @@
       </form>
     </div> -->
     </div>
-    <form v-on:submit.prevent="submit()">
+    <!-- <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -103,7 +107,7 @@
         </small>
       </div>
       <input type="submit" value="Submit" />
-    </form>
+    </form> -->
   </div>
 </template>
 
