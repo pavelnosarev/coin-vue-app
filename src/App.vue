@@ -15,10 +15,7 @@
               <nav>
                 <ul>
                   <li>
-                    <a href="/">
-                      Home
-                      <!-- <i class="fa fa-angle-down"></i> -->
-                    </a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
                     <ul class="mega-menu">
@@ -35,20 +32,7 @@
                   </li>
                   <li><a href="/coins">Coin Database</a></li>
                   <li>
-                    <a href="/usercoins">
-                      My Coins
-                      <!-- <i class="fa fa-angle-down"></i> -->
-                    </a>
-                    <!-- <ul class="submenu">
-                      <li><a href="/about">about us</a></li>
-                      <li><a href="cart-page.html">cart page</a></li>
-                      <li><a href="checkout.html">checkout</a></li>
-                      <li><a href="wishlist.html">wishlist</a></li>
-                      <li><a href="my-account.html">my account</a></li>
-                      <li><a href="/">login</a></li>
-                      <li><a href="contact.html">contact us</a></li>
-                      <li><a href="404.html">404 page</a></li>
-                    </ul> -->
+                    <a href="/usercoins">My Coins</a>
                   </li>
                   <li>
                     <a href="/coins/new">Add New Coin</a>

@@ -38,9 +38,11 @@
                         <label>Own Coin?:</label>
                         <input type="text" v-model="currentUserCoinParams.status" placeholder="status" />
 
-                        <input type="submit" v-on:click="patchUserCoin(userCoin)" placeholder="patch" />
+                        <input type="submit" v-on:click="patchUserCoin(UserCoin)" placeholder="patch" />
                         <div class="button-box">
-                          <button type="submit" class="btn btn-secondary"><span>Delete from List</span></button>
+                          <button v-on:click="destroyUserCoin()" type="submit" class="btn btn-secondary">
+                            <span>Delete from List</span>
+                          </button>
                         </div>
                         <!-- <input type="submit" v-on:click="destroyUserCoin(userCoin)" placeholder="password" />
                     <div class="button-box">

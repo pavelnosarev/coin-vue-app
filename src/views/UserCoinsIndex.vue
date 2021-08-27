@@ -37,10 +37,11 @@
                             <router-link v-bind:to="`/usercoins/${userCoin.id}/edit`">
                               <button class="btn btn-secondary">Edit Coin</button>
                             </router-link>
-
-                            <router-link v-bind:to="`/usercoins/${userCoin.id}/destroy`">
-                              <button class="btn btn-secondary">Delete Coin</button>
-                            </router-link>
+                            <br />
+                            <br />
+                            <!-- <router-link v-bind:to="`/usercoins/${userCoin.id}/destroy`">
+                              <button class="btn btn-secondary">Delete Coin</button> -->
+                            <!-- </router-link> -->
                           </div>
                         </div>
                       </div>
